@@ -1,5 +1,6 @@
 const generateMarkdown = require("./utils/generateMarkdown");
 const inquirer = require("inquirer");
+var fs = require("fs");
 // array of questions for user
 // type: (String) Type of the prompt. Defaults: input - Possible values: input, number, confirm, list, rawlist, expand, checkbox, password, editor
 // name: (String) The name to use when storing the answer in the answers hash
@@ -63,7 +64,6 @@ const questions = [
         message: "Please provide a link to the GitHub repository."
     },
 ];
-console.log(questions);
 
 
 // function to write README file
@@ -78,7 +78,13 @@ function init() {
     // writeToFile(saidFileName, dataFromQuestions)
     inquirer
         .prompt(questions).then(function(response) {
-            console.log(response);
+
+            fs.appendFile("README1.md", ("# " + response.title) + "\n", function(err) {
+                if (err) {
+                return console.log(err);
+                }   
+                console.log("Success!"); 
+                });
         })
 }
 
