@@ -1,6 +1,61 @@
 // array of questions for user
 const generateMarkdown = require("./utils/generateMarkdown")
 const questions = [
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
+    {
+        type: "",
+        name: "",
+        message: ""
+    },
 
 ];
 
