@@ -7,11 +7,11 @@ var fs = require("fs");
 // message: (String|Function) The question to print. If defined as a function, the first parameter will be the current inquirer session answers. Defaults to the value of name (followed by a colon).
 //For a good ReadME file we need a project title, a description, a table of contents, installation instructions, how to use the project, a badge, a license (checkbox?), project author(s), contact emails, and a link to the github repo.
 const questions = [
-    {
-        type: "input",
-        name: "fileName",
-        message: "What would you like the name of your markdown file to be?"
-    },
+    // {
+    //     type: "input",
+    //     name: "fileName",
+    //     message: "What would you like the name of your markdown file to be?"
+    // },
     {
         type: "input",
         name: "title",
@@ -44,8 +44,8 @@ const questions = [
     },
     {
         type: "checkbox",
-        name: "license",
         message: "Choose a license.",
+        name: "license",
         choices: [
             "Unlicensed",
             "MIT",
@@ -65,6 +65,11 @@ const questions = [
     },
     {
         type: "input",
+        name: "gitName",
+        message: "Please provide your GitHub username."
+    },
+    {
+        type: "input",
         name: "link",
         message: "Please provide a link to the GitHub repository."
     },
@@ -72,23 +77,29 @@ const questions = [
 
 
 // function to write README file
-function writeToFile(fileName, data) {
-    fs.writeToFile(fileName + ".md", (generateMarkdown(data)) + "\n", function(err) {
-        if (err) {
-        return console.log(err);
-        }   
-        console.log("Success!"); 
-        });
-}
+// function writeToFile(data) {
+//     fs.writeToFile("README1.md", (generateMarkdown(data)) + "\n", function(err) {
+//         if (err) {
+//         return console.log(err);
+//         }   
+//         console.log("Success!"); 
+//         });
+// }
 
 // function to initialize program
 function init() {
     //ask the inquirer stuff
     //one question about file name
     // writeToFile(saidFileName, dataFromQuestions)
-    inquirer
+    inquirer //this is a node.js package that gathers user data from the questions in the terminal
         .prompt(questions).then(function(data) {
-            writeToFile(data.fileName, data)
+            let fileRead = generateMarkdown(data);
+
+            fs.writeFile("README1.md", fileRead, function(error) {
+                if(error) {
+                    return console.log("error")
+                } else console.log("Success!");
+            })
         })
 }
 
