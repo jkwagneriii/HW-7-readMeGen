@@ -31,37 +31,38 @@ const questions = [
         message: "What will this project be used for?"
     },
     {
-        type: "",
-        name: "",
-        message: ""
+        type: "input",
+        name: "badge",
+        message: "Input badge code. They can be found at https://shields.io/"
     },
     {
-        type: "",
-        name: "",
-        message: ""
+        type: "checkbox",
+        name: "license",
+        message: "Choose a license.",
+        choices: [
+            "Unlicensed",
+            "MIT",
+            "No Commercial Use",
+            "BSD Style"
+        ]
     },
     {
-        type: "",
-        name: "",
-        message: ""
+        type: "input",
+        name: "authors",
+        message: "Who are the authors of this project?"
     },
     {
-        type: "",
-        name: "",
-        message: ""
+        type: "input",
+        name: "email",
+        message: "Please provide contact email."
     },
     {
-        type: "",
-        name: "",
-        message: ""
+        type: "input",
+        name: "link",
+        message: "Please provide a link to the GitHub repository."
     },
-    {
-        type: "",
-        name: "",
-        message: ""
-    },
-
 ];
+console.log(questions);
 
 
 // function to write README file
