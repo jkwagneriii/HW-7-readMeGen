@@ -95,7 +95,7 @@ function init() {
         .prompt(questions).then(function(data) {
             let fileRead = generateMarkdown(data);
 
-            fs.writeFile("READMEfinal.md", fileRead, function(error) {
+            fs.writeFile("READMEfinished.md", fileRead, function(error) {
                 if(error) {
                     return console.log("error")
                 } else console.log("Success!");
