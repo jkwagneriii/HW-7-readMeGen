@@ -1,4 +1,5 @@
-const generateMarkdown = require("./utils/generateMarkdown")
+const generateMarkdown = require("./utils/generateMarkdown");
+const inquirer = require("inquirer");
 // array of questions for user
 // type: (String) Type of the prompt. Defaults: input - Possible values: input, number, confirm, list, rawlist, expand, checkbox, password, editor
 // name: (String) The name to use when storing the answer in the answers hash
@@ -75,6 +76,10 @@ function init() {
     //ask the inquirer stuff
     //one question about file name
     // writeToFile(saidFileName, dataFromQuestions)
+    inquirer
+        .prompt(questions).then(function(response) {
+            console.log(response);
+        })
 }
 
 // function call to initialize program
