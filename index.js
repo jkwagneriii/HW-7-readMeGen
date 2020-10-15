@@ -75,17 +75,6 @@ const questions = [
     },
 ];
 
-
-// function to write README file
-// function writeToFile(data) {
-//     fs.writeToFile("README1.md", (generateMarkdown(data)) + "\n", function(err) {
-//         if (err) {
-//         return console.log(err);
-//         }   
-//         console.log("Success!"); 
-//         });
-// }
-
 // function to initialize program
 function init() {
     //ask the inquirer stuff
@@ -95,7 +84,7 @@ function init() {
         .prompt(questions).then(function(data) {
             let fileRead = generateMarkdown(data);
 
-            fs.writeFile("READMEfinished.md", fileRead, function(error) {
+            fs.writeFile("READMEfinal.md", fileRead, function(error) {
                 if(error) {
                     return console.log("error")
                 } else console.log("Success!");
