@@ -9,6 +9,11 @@ var fs = require("fs");
 const questions = [
     {
         type: "input",
+        name: "fileName",
+        message: "What would you like the name of your markdown file to be?"
+    },
+    {
+        type: "input",
         name: "title",
         message: "What is the title of this project?"
     },
@@ -68,7 +73,12 @@ const questions = [
 
 // function to write README file
 function writeToFile(fileName, data) {
-    generateMarkdown(data);
+    fs.writeToFile(fileName + ".md", (generateMarkdown(data)) + "\n", function(err) {
+        if (err) {
+        return console.log(err);
+        }   
+        console.log("Success!"); 
+        });
 }
 
 // function to initialize program
@@ -77,14 +87,8 @@ function init() {
     //one question about file name
     // writeToFile(saidFileName, dataFromQuestions)
     inquirer
-        .prompt(questions).then(function(response) {
-
-            fs.appendFile("README1.md", ("# " + response.title) + "\n", function(err) {
-                if (err) {
-                return console.log(err);
-                }   
-                console.log("Success!"); 
-                });
+        .prompt(questions).then(function(data) {
+            writeToFile(data.fileName, data)
         })
 }
 
